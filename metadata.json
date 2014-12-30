@@ -1,0 +1,21 @@
+{
+  "name": "jtopjian-redis",
+  "version": "0.1.0",
+  "author": "jtopjian",
+  "summary": "Install and configure Redis",
+  "license": "Apache 2.0",
+  "source": "https://github.com/jtopjian/puppet-redis",
+  "project_page": "https://github.com/jtopjian/puppet-redis",
+  "issues_url": "https://github.com/jtopjian/puppet-redis/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_range": ">= 1.0.0"
+    },
+    {
+      "name" "puppetlabs-apt",
+      "version_range": ">= 1.7.0"
+    }
+  ]
+}
+
