@@ -47,19 +47,20 @@
 # Copyright 2014 Joe Topjian
 #
 class redis (
-  $package_ensure = 'latest',
-  $use_repo       = true,
-  $user           = 'redis',
-  $group          = 'redis',
-  $config_dir     = '/etc/redis',
-  $service_ensure = 'running',
-  $service_enable = true,
-  $reload_service = true,
-  $settings       = {},
-  $save_settings  = { '900 1' => 'present', '300 10' => 'present', '60 1000' => 'present' },
-) {
+  $package_ensure = $redis::params::package_ensure,
+  $manage_repo    = $redis::params::manage_repo,
+  $user           = $redis::params::user,
+  $group          = $redis::params::group,
+  $config_dir     = $redis::params::config_dir,
+  $settings       = $redis::params::settings,
+  $save_settings  = $redis::params::save_settings,
+  $service_ensure = $redis::params::service_ensure,
+  $service_enable = $redis::params::service_enable,
+  $reload_service = $redis::params::reload_service,
+) inherits redis::params {
 
   anchor { 'redis::begin': } ->
+  class { 'redis::repo': } ->
   class { 'redis::install': } ->
   class { 'redis::config': } ->
   class { 'redis::service': } ->

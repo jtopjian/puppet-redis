@@ -6,6 +6,7 @@ describe 'redis' do
 
     # All classes
     it { should contain_class('redis') }
+    it { should contain_class('redis::repo') }
     it { should contain_class('redis::install') }
     it { should contain_class('redis::config') }
     it { should contain_class('redis::service') }
